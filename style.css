@@ -1,0 +1,102 @@
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff5f7;
+  color: #333;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 100;
+}
+nav a {
+  color: #e91e63;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+nav a:hover {
+  border-bottom: 2px solid #e91e63;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ffe0ec, #d5fefd);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+#bg-video, .bg-image {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.5);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 900px;
+  padding: 30px;
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Floating Hearts Animation */
+.heart {
+  position: fixed;
+  bottom: -30px;
+  width: 24px;
+  height: 24px;
+  background: #ff80ab;
+  transform: rotate(-45deg);
+  animation: floatUp 8s infinite ease-in;
+  opacity: 0.8;
+  z-index: -1;
+}
+.heart::before, .heart::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #ff80ab;
+  border-radius: 50%;
+}
+.heart::before { top: -12px; }
+.heart::after { left: 12px; }
+
+@keyframes floatUp {
+  0% { bottom: -30px; opacity: 0.7; }
+  100% { bottom: 110%; transform: translateX(60px); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
